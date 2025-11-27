@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page // Xiaochi Liu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              mono: ['"Space Mono"', '"Noto Sans SC"', 'monospace'],
+              sans: ['"Inter"', '"Noto Sans SC"', 'sans-serif'],
+            },
+            colors: {
+              retro: {
+                bg: '#F2F0E9',
+                surface: '#E6E2D6',
+                accent: '#E06C43', // Faded Orange
+                primary: '#475C7A', // Faded Blue
+                dark: '#2A2A2A',
+                dim: '#8C8C8C',
+                border: '#B0ADA5'
+              }
+            },
+            boxShadow: {
+              'machine': '4px 4px 0px 0px rgba(176, 173, 165, 0.5)',
+              'machine-sm': '2px 2px 0px 0px rgba(176, 173, 165, 0.5)',
+              'pressed': 'inset 2px 2px 4px 0px rgba(0,0,0,0.1)'
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #F2F0E9;
+        color: #2A2A2A;
+      }
+      /* Custom Scrollbar for Chrome/Safari/Webkit */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #E6E2D6;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #B0ADA5;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #8C8C8C;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

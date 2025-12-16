@@ -23,8 +23,8 @@ export const Overview: React.FC<OverviewProps> = ({ onNavigate, language }) => {
     available: language === 'zh' ? '无限进步...' : 'Endless progress',
     expGrad: language === 'zh' ? '预计毕业：2026年6月' : 'Exp. Grad: JUNE 2026',
     activeProjects: language === 'zh' ? '进行中的项目' : 'Active Projects',
-    systemModules: language === 'zh' ? '技术栈' : 'TOOLKIT',
-    kernelLog: language === 'zh' ? '内核日志 // 最近活动' : 'Kernel_Log // RECENT_ACTIVITY',
+    systemModules: language === 'zh' ? '技术栈 TOOLKIT' : 'TOOLKIT',
+    kernelLog: language === 'zh' ? '内核日志 Kernel_Log' : 'Kernel_Log',
     dept: language === 'zh' ? '系别' : 'Dept',
     role: language === 'zh' ? '角色' : 'Role',
     lab: language === 'zh' ? '实验室' : 'Lab',
@@ -170,7 +170,7 @@ export const Overview: React.FC<OverviewProps> = ({ onNavigate, language }) => {
         <p className="text-xl md:text-2xl leading-relaxed font-light text-retro-dark/80 max-w-2xl border-l border-retro-border pl-6 py-2">
           {language === 'zh' 
             ? '欢迎来到我的主页！我探索大模型安全与统计学的交叉领域。我的目标是为大模型中的难题找到高效解决方案。'
-            : 'Welcome to my home page! I explore the intersection of LLM security and statistics. My goal is to uncover efficient solutions to hard problems in large language models.'}
+            : 'Welcome to my home page! I explore the intersection of LLM safety and statistics. My goal is to uncover efficient solutions to hard problems in large language models.'}
         </p>
 
         <div className="flex flex-wrap gap-6 pt-4">
@@ -315,7 +315,7 @@ export const Overview: React.FC<OverviewProps> = ({ onNavigate, language }) => {
             
             <div className="space-y-4 font-mono text-xs">
                 {[
-                    { date: '2025-11-20', event: language === 'zh' ? '论文开题' : 'Thesis Proposal', status: 'PASSED' },
+                    { date: '2025-11-20', event: language === 'zh' ? '毕业论文开题' : 'Thesis Proposal', status: 'PASSED' },
                     { date: '2025-10-28', event: language === 'zh' ? '论文被 STAT 接收' : 'Paper accepted at STAT', status: 'SUCCESS' },
                     { date: '2025-09-25', event: language === 'zh' ? '完成保研流程' : 'Master’s Program Accepted.', status: 'SUCCESS' },
                     // { date: '2025-09-25', event: language === 'zh' ? 'GraphFlow v2.0 发布' : 'GraphFlow v2.0 Release', status: 'DEPLOYED' },

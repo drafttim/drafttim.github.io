@@ -17,6 +17,71 @@ export const Layout: React.FC<LayoutProps> = ({ children, activeSection, onNavig
   return (
     <div className="min-h-screen bg-retro-bg text-retro-dark font-sans selection:bg-retro-accent selection:text-white pb-24 relative overflow-hidden">
       
+      {/* Custom Styles for 1-SECOND ONE-SHOT Glitch Effect */}
+      <style>{`
+        /* 
+           Glitch Animation 1 
+           0% - 90%: opacity 为 1 (可见)
+           100%: opacity 变回 0 (隐藏)
+        */
+        @keyframes glitch-anim-1 {
+          0% { opacity: 1; clip-path: inset(20% 0 80% 0); transform: translate(-2px, 1px); }
+          10% { clip-path: inset(10% 0 85% 0); transform: translate(1px, -1px); }
+          20% { clip-path: inset(20% 0 80% 0); transform: translate(-2px, 1px); }
+          40% { clip-path: inset(60% 0 10% 0); transform: translate(2px, -1px); }
+          50% { clip-path: inset(65% 0 5% 0); transform: translate(1px, 0px); }
+          60% { clip-path: inset(40% 0 50% 0); transform: translate(-2px, 2px); }
+          80% { clip-path: inset(80% 0 5% 0); transform: translate(2px, -2px); }
+          90% { opacity: 1; clip-path: inset(85% 0 0% 0); transform: translate(1px, -1px); }
+          100% { opacity: 0; clip-path: inset(30% 0 50% 0); transform: translate(0, 0); }
+        }
+        
+        /* Glitch Animation 2 */
+        @keyframes glitch-anim-2 {
+          0% { opacity: 1; clip-path: inset(10% 0 60% 0); transform: translate(2px, -1px); }
+          15% { clip-path: inset(15% 0 55% 0); transform: translate(1px, 0px); }
+          30% { clip-path: inset(30% 0 20% 0); transform: translate(-2px, 1px); }
+          50% { clip-path: inset(70% 0 10% 0); transform: translate(2px, 2px); }
+          70% { clip-path: inset(20% 0 50% 0); transform: translate(-2px, -2px); }
+          85% { clip-path: inset(25% 0 45% 0); transform: translate(-1px, -1px); }
+          95% { opacity: 1; }
+          100% { opacity: 0; clip-path: inset(0% 0 80% 0); transform: translate(0, 0); }
+        }
+
+        /* 
+           Scanline Animation (新增)
+           让条纹也只持续 1 秒
+        */
+        @keyframes scanline-anim {
+           0% { opacity: 0; }
+           1% { opacity: 1; }   /* 立即显示 */
+           90% { opacity: 1; }  /* 保持显示直到快结束 */
+           100% { opacity: 0; } /* 结束时隐藏 */
+        }
+
+        /* Flash effect */
+        @keyframes flash-white {
+           0% { opacity: 0; }
+           10% { opacity: 0.3; }
+           100% { opacity: 0; }
+        }
+
+        /* Apply animations on hover */
+        .group:hover .glitch-layer-1 {
+          animation: glitch-anim-1 1s linear forwards;
+        }
+        .group:hover .glitch-layer-2 {
+          animation: glitch-anim-2 1s linear forwards;
+        }
+        .group:hover .glitch-flash {
+           animation: flash-white 0.5s forwards;
+        }
+        /* 应用条纹动画 */
+        .group:hover .scanline-layer {
+           animation: scanline-anim 1s linear forwards;
+        }
+      `}</style>
+
       {/* Background Engineering Grid */}
       <div 
         className="fixed inset-0 pointer-events-none opacity-[0.03] z-0" 
@@ -56,17 +121,42 @@ export const Layout: React.FC<LayoutProps> = ({ children, activeSection, onNavig
               
               <div className="border-l-4 border-retro-accent pl-6 py-2 relative">
                 
-                {/* Profile Photo */}
+                {/* Profile Photo - ONE SHOT GLITCH */}
                 <div className="w-28 h-28 mb-6 relative group cursor-pointer">
-                    <div className="absolute inset-0 border-2 border-retro-dark/20 translate-x-1 translate-y-1 transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
-                    <div className="relative h-full w-full overflow-hidden border border-retro-border bg-retro-surface grayscale group-hover:grayscale-0 transition-all duration-500 ease-out">
+                    {/* Offset Border Decoration */}
+                    <div className="absolute inset-0 border-2 border-retro-dark/20 translate-x-1 translate-y-1 transition-transform group-hover:translate-x-2 group-hover:translate-y-2 duration-500"></div>
+                    
+                    {/* Image Container */}
+                    <div className="relative h-full w-full overflow-hidden border border-retro-border bg-retro-surface">
+                         
+                         {/* 1. Base Image (Normal - Always Visible) */}
                          <img 
                             src={pic}
                             alt="Xiaochi Liu" 
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover relative z-10"
                          />
-                         <div className="absolute inset-0 bg-retro-primary/10 mix-blend-multiply group-hover:bg-transparent transition-colors"></div>
+
+                         {/* 2. Glitch Layer 1 (Red/Cyan Shift + Slice) */}
+                         <div className="glitch-layer-1 absolute inset-0 opacity-0 z-20 mix-blend-hard-light">
+                             <img src={pic} className="w-full h-full object-cover filter contrast-150 brightness-125 sepia-[.5] hue-rotate-[-50deg]" alt="" />
+                         </div>
+
+                         {/* 3. Glitch Layer 2 (Blue/Magenta Shift + Slice) */}
+                         <div className="glitch-layer-2 absolute inset-0 opacity-0 z-20 mix-blend-hard-light">
+                             <img src={pic} className="w-full h-full object-cover filter contrast-150 brightness-125 sepia-[.5] hue-rotate-[180deg]" alt="" />
+                         </div>
+
+                         {/* 4. White Flash Overlay */}
+                         <div className="glitch-flash absolute inset-0 bg-white pointer-events-none z-30 opacity-0 mix-blend-overlay"></div>
+
+                         {/* 5. Scanlines (Now animated for 1s) */}
+                         {/* 修改点：去掉了 group-hover:opacity-100，加了类名 scanline-layer */}
+                         <div 
+                            className="scanline-layer absolute inset-0 opacity-0 z-40 pointer-events-none"
+                            style={{ backgroundImage: 'linear-gradient(transparent 50%, rgba(0,0,0,0.4) 50%)', backgroundSize: '100% 3px' }}
+                         ></div>
                     </div>
+
                     {/* Corner accents */}
                     <div className="absolute -top-1 -left-1 w-2 h-2 border-t-2 border-l-2 border-retro-accent"></div>
                     <div className="absolute -bottom-1 -right-1 w-2 h-2 border-b-2 border-r-2 border-retro-accent"></div>

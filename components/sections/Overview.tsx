@@ -315,7 +315,7 @@ export const Overview: React.FC<OverviewProps> = ({ onNavigate, language }) => {
             
             <div className="space-y-4 font-mono text-xs">
                 {[
-                    { date: '2026-05-09', event: language === 'zh' ? '毕业答辩获评优秀论文' : 'Thesis Defense: Outstanding Thesis', status: 'HONORS' },
+                    { date: '2026-05-09', event: language === 'zh' ? '毕业答辩获评优秀论文' : 'Thesis Defense: Outstanding Thesis', status: 'SUCCESS' },
                     { date: '2025-11-20', event: language === 'zh' ? '毕业论文开题' : 'Thesis Proposal', status: 'PASSED' },
                     { date: '2025-10-28', event: language === 'zh' ? '论文被 STAT 接收' : 'Paper accepted at STAT', status: 'SUCCESS' },
                     { date: '2025-09-25', event: language === 'zh' ? '完成保研流程' : 'Master’s Program Accepted.', status: 'SUCCESS' },

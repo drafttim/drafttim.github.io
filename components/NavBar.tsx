@@ -1,5 +1,6 @@
 import React from 'react';
-import { SectionId, NavItem, Language } from '../types';
+import type { SectionId, Language } from '../types';
+import { navigationItems } from '../data/navigation';
 import { FolderOpen, BookOpen, Grid, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -10,29 +11,9 @@ interface NavBarProps {
 }
 
 export const NavBar: React.FC<NavBarProps> = ({ activeSection, onNavigate, language }) => {
-  const getLabel = (id: SectionId) => {
-    if (language === 'zh') {
-      switch (id) {
-        case 'overview': return '概览 Overview';
-        case 'research': return '研究 Research';
-        case 'projects': return '项目 Projects';
-        case 'contact': return '联系 Contact';
-      }
-    }
-    // Default English
-    return id.charAt(0).toUpperCase() + id.slice(1);
-  };
-
-  const navItems: NavItem[] = [
-    { id: 'overview', label: getLabel('overview'), icon: 'Grid' },
-    { id: 'research', label: getLabel('research'), icon: 'BookOpen' },
-    { id: 'projects', label: getLabel('projects'), icon: 'FolderOpen' },
-    { id: 'contact', label: getLabel('contact'), icon: 'Mail' },
-  ];
-
   return (
     <ul className="space-y-6">
-      {navItems.map((item, index) => {
+      {navigationItems.map((item, index) => {
         const isActive = activeSection === item.id;
         
         return (
@@ -81,7 +62,7 @@ export const NavBar: React.FC<NavBarProps> = ({ activeSection, onNavigate, langu
                     text-lg font-bold tracking-tight transition-colors
                     ${isActive ? 'text-retro-dark' : 'text-retro-dark/60 group-hover:text-retro-dark'}
                   `}>
-                    {item.label}
+                    {item.label[language]}
                   </span>
               </div>
             </button>

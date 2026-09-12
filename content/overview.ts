@@ -8,16 +8,18 @@ export interface OverviewContent {
   readPapers: string;
   contactMe: string;
   available: string;
-  expGrad: string;
+  studyStatus: string;
   activeProjects: string;
   systemModules: string;
   kernelLog: string;
-  dept: string;
-  computerScience: string;
+  degreeTypeLabel: string;
+  degreeType: string;
+  majorLabel: string;
+  major: string;
   researchInterest: string;
-  phdCandidate: string;
-  techInstitute: string;
-  thesisDescription: string;
+  studentStatus: string;
+  institution: string;
+  researchSummary: string;
   approximationAlgorithms: string;
   graphTheory: string;
   distributedConsensus: string;
@@ -34,16 +36,18 @@ export const overviewContent: Localized<OverviewContent> = {
     readPapers: 'Read Papers',
     contactMe: 'Contact Me',
     available: 'Endless progress',
-    expGrad: 'Exp. Grad: JUNE 2026',
+    studyStatus: 'Master’s Program · In Progress',
     activeProjects: 'Active Projects',
     systemModules: 'TOOLKIT',
     kernelLog: 'Kernel_Log',
-    dept: 'Dept',
-    computerScience: 'Applied Statistics',
+    degreeTypeLabel: 'Degree Type',
+    degreeType: 'Research-based Master’s',
+    majorLabel: 'Major',
+    major: 'Statistics',
     researchInterest: 'I am particularly interested in the intersection of theory and practice. My work often involves designing algorithms with provable guarantees that are also practical for deployment in real-world large language models.',
-    phdCandidate: 'Senior Undergraduate',
-    techInstitute: 'College of Arts and Sciences, Dept. of Statistics',
-    thesisDescription: 'Currently conducting advanced research in LLM security. My thesis focuses on strengthening the robustness of watermark embedding and detection mechanisms for large language models.',
+    studentStatus: 'Master’s Student in Statistics',
+    institution: 'Beijing Normal University',
+    researchSummary: 'My research focuses on LLM security, particularly strengthening the robustness of watermark embedding and detection mechanisms for large language models.',
     approximationAlgorithms: 'LLM Security',
     graphTheory: 'Transfer Learning',
     distributedConsensus: 'Large-sample Theory',
@@ -58,16 +62,18 @@ export const overviewContent: Localized<OverviewContent> = {
     readPapers: '阅读论文',
     contactMe: '联系我',
     available: '无限进步...',
-    expGrad: '预计毕业：2026年6月',
+    studyStatus: '学术型硕士在读',
     activeProjects: '进行中的项目',
     systemModules: '技术栈 TOOLKIT',
     kernelLog: '内核日志 Kernel_Log',
-    dept: '系别',
-    computerScience: '应用统计学',
+    degreeTypeLabel: '学位类型',
+    degreeType: '学术型硕士',
+    majorLabel: '专业',
+    major: '统计学',
     researchInterest: '我对理论与实践的交叉领域特别感兴趣。我的工作通常涉及设计具有可证明保证的算法，这些算法在实际大模型部署中也具有实用性。',
-    phdCandidate: '本科四年级',
-    techInstitute: '文理学院，统计学系',
-    thesisDescription: '目前进行大模型溯源安全的前沿研究。我的论文重点是增强大模型水印掺杂与识别机制的稳健性。',
+    studentStatus: '统计学学术型硕士研究生',
+    institution: '北京师范大学',
+    researchSummary: '我的研究聚焦大模型溯源安全，重点关注大模型水印嵌入与识别机制的稳健性。',
     approximationAlgorithms: '大模型安全 LLM Security',
     graphTheory: '迁移学习 Transfer Learning',
     distributedConsensus: '大样本理论 Large-sample Theory',

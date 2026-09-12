@@ -8,26 +8,26 @@ export const createOverviewCards = (t: OverviewContent) => {
       code: '01',
       content: (
         <>
-           <div className="text-lg font-bold mb-1">{t.phdCandidate}</div>
-           <div className="text-retro-dim mb-4">{t.techInstitute}</div>
+           <div className="text-lg font-bold mb-1">{t.studentStatus}</div>
+           <div className="text-retro-dim mb-4">{t.institution}</div>
            <div className="text-xs font-mono bg-retro-surface p-2 inline-block border border-retro-border">
-              {t.expGrad}
+              {t.studyStatus}
            </div>
         </>
       ),
       details: (
         <div className="mt-6 pt-6 border-t border-dashed border-retro-border space-y-4">
           <p className="text-sm text-retro-dark/80 leading-relaxed">
-              {t.thesisDescription}
+              {t.researchSummary}
           </p>
           <div className="grid grid-cols-2 gap-4 bg-retro-surface/30 p-4 border border-retro-border">
               <div>
-                  <span className="block text-[10px] font-mono text-retro-dim uppercase">GPA</span>
-                  <span className="font-bold text-retro-dark">3.6 / 4.0</span>
+                  <span className="block text-[10px] font-mono text-retro-dim uppercase">{t.degreeTypeLabel}</span>
+                  <span className="font-bold text-retro-dark">{t.degreeType}</span>
               </div>
               <div>
-                  <span className="block text-[10px] font-mono text-retro-dim uppercase">{t.dept}</span>
-                  <span className="font-bold text-retro-dark">{t.computerScience}</span>
+                  <span className="block text-[10px] font-mono text-retro-dim uppercase">{t.majorLabel}</span>
+                  <span className="font-bold text-retro-dark">{t.major}</span>
               </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { Disc, Globe } from 'lucide-react';
+import { overviewContent } from '../../content/overview';
 import type { Language } from '../../types';
 import { ProfilePhoto } from './ProfilePhoto';
 
@@ -8,6 +9,8 @@ interface IdentityBlockProps {
 }
 
 export const IdentityBlock = ({ language, onLanguageChange }: IdentityBlockProps) => {
+  const t = overviewContent[language];
+
   return (
     <div className="space-y-4 relative">
       {/* Tape visual */}
@@ -41,7 +44,7 @@ export const IdentityBlock = ({ language, onLanguageChange }: IdentityBlockProps
           )}
         </h1>
         <p className="text-sm text-retro-dim mt-2 font-mono">
-          {language === 'zh' ? <>北京师范大学 本科四年级<br/>算法与大模型</> : <>Beijing Normal University<br/>Senior Undergraduate<br/>Algorithms &amp; LLMs</>}
+          {language === 'zh' ? <>{t.institution} {t.studentStatus}<br/>算法与大模型</> : <>{t.institution}<br/>{t.studentStatus}<br/>Algorithms &amp; LLMs</>}
         </p>
       </div>
     </div>
